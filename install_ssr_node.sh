@@ -107,8 +107,7 @@ install_node(){
 	UserNODE_ID=${UserNODE_ID:-"3"}
 	sed -i '2d' /root/shadowsocks/userapiconfig.py
 	sed -i "2a\NODE_ID = ${UserNODE_ID}" /root/shadowsocks/userapiconfig.py
-	cd /root/shadowsocks
-	./logrun.sh
+	install_supervisord
 	echo "#############################################################"
 	echo "# 安装成功，登录前端站点看看吧                              #"
 	echo "# Github: https://github.com/mmmwhy/ss-panel-and-ss-py-mu   #"
@@ -117,7 +116,7 @@ install_node(){
 	echo "#############################################################"
 }
 install_supervisord(){
-	##rpm -Uvh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm --quiet
+	rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm --quiet
 	yum install supervisor python-pip -y
 	pip install supervisor==3.1
 	chkconfig supervisord on
