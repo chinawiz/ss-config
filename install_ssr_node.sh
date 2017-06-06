@@ -57,7 +57,6 @@ install_ss_panel_mod_v3(){
 install_ssr(){
 	yum -y update
 	yum -y install git -y
-	yum -y install git -y
 	yum -y install python-setuptools && easy_install pip -y
 	yum -y groupinstall "Development Tools" -y
 	wget https://raw.githubusercontent.com/mmmwhy/ss-panel-and-ss-py-mu/master/libsodium-1.0.11.tar.gz
@@ -70,14 +69,12 @@ install_ssr(){
 	git clone -b manyuser https://github.com/glzjin/shadowsocks.git "/root/shadowsocks"
 	#install devel
 	cd /root/shadowsocks
-	yum -y install python-devel
-	yum -y install libffi-devel
-	yum -y install openssl-devel
+	yum -y install python-devel libffi-devel openssl-devel
 	pip install -r requirements.txt
 	cp apiconfig.py userapiconfig.py
 	cp config.json user-config.json
 	#iptables
-  #iptables -I INPUT -p tcp -m tcp --dport 104 -j ACCEPT
+  	#iptables -I INPUT -p tcp -m tcp --dport 104 -j ACCEPT
 	iptables -I INPUT -p tcp -m tcp --dport 10000:20000 -j ACCEPT
 	service iptables save
 }
