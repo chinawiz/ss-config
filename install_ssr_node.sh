@@ -121,8 +121,8 @@ install_supervisord(){
 	yum install supervisor python-pip -y
 	pip install supervisor==3.1
 	chkconfig supervisord on
-	wget https://github.com/glzjin/ssshell-jar/raw/master/supervisord.conf -O /etc/supervisord.conf
-	wget https://github.com/glzjin/ssshell-jar/raw/master/supervisord -O /etc/init.d/supervisord
+	wget https://github.com/chinawiz/ss-config/blob/master/supervisord.conf -O /etc/supervisord.conf
+	wget https://github.com/chinawiz/ss-config/blob/master/supervisord -O /etc/init.d/supervisord
 }
 echo
 echo "#############################################################"
