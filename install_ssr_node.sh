@@ -119,6 +119,7 @@ install_supervisord(){
 	chkconfig supervisord on
 	wget https://github.com/chinawiz/ss-config/blob/master/supervisord.conf -O /etc/supervisord.conf
 	wget https://github.com/chinawiz/ss-config/blob/master/supervisord -O /etc/init.d/supervisord
+	service supervisord start
 }
 echo
 echo "#############################################################"
